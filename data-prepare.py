@@ -21,8 +21,7 @@ engine = create_engine(conn, echo=True)
 
 # Função para carregar os dados de uma tabela específica
 def load_data(table_name):
-    query = f"SELECT * FROM {table_name}"
-    df = pd.read_sql(query, engine)
+    df = conn.query(f"SELECT * FROM {table_name}", ttl="10m")
 
     for col in df.columns:
         if df[col].dtype == 'object':  # Verifica se a coluna é lida como 'object', que pode conter strings
