@@ -12,11 +12,11 @@ database = 'Cronobox_DB'
 
 # URL de conexão
 
-DATABASE_URL = st.secrets["general"]["DATABASE_URL"]
+conn = st.connection("postgresql", type="sql")
 
 # Criar o motor de conexão do SQLAlchemy
 
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(conn, echo=True)
 
 
 # Função para carregar os dados de uma tabela específica
