@@ -1,11 +1,6 @@
 import pandas as pd
-import psycopg2
-import ipywidgets as widgets
-import matplotlib.pyplot as plt
 import streamlit as st
-import plotly.express as px
-from IPython.display import display
-from sqlalchemy import create_engine, text, select, inspect
+from sqlalchemy import create_engine
 
 # Credenciais
 
@@ -17,11 +12,11 @@ database = 'Cronobox_DB'
 
 # URL de conexão
 
-connection_url = f'postgresql://{username}:{password}@{host}:{port}/{database}'
+DATABASE_URL = st.secrets["general"]["DATABASE_URL"]
 
 # Criar o motor de conexão do SQLAlchemy
 
-engine = create_engine(connection_url, echo=True)
+engine = create_engine(DATABASE_URL, echo=True)
 
 
 # Função para carregar os dados de uma tabela específica
