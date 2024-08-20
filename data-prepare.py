@@ -14,11 +14,6 @@ database = 'Cronobox_DB'
 
 conn = st.connection("postgresql", type="sql")
 
-# Criar o motor de conexão do SQLAlchemy
-
-engine = create_engine(conn, echo=True)
-
-
 # Função para carregar os dados de uma tabela específica
 def load_data(table_name):
     df = conn.query(f"SELECT * FROM {table_name}", ttl="10m")
