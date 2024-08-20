@@ -1,4 +1,3 @@
 pandas
 streamlit
 sqlalchemy
-psycopg2
