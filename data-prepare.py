@@ -14,7 +14,6 @@ database = 'Cronobox_DB'
 
 conn = st.connection("postgresql", type="sql")
 
-engine = create_engine(conn)
 
 # Função para carregar os dados de uma tabela específica
 def load_data(table_name):
